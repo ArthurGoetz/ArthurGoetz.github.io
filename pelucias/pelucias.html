@@ -1,15 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelúcias</title>
+    <title>Loja de Pelúcias</title>
+    <link rel="stylesheet" href="../css/stylespelucias.css">
 </head>
-    <link rel="stylesheet" href="../css/pelucias.css">
 <body>
-    <h1>Bem vindo à aba de produtos</h1>
-    <p>Aqui serão adicionados os itens a vender</p>
 
-    <script src = "../scripts/main.js"></script>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="logo">LOGO AQUI</div>
+        <h1>Loja de Bichos de Pelúcia</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- Menu Lateral -->
+        <aside class="sidebar">
+            <h2>Filtros</h2>
+
+            <h3>Categoria</h3>
+            <label><input type="checkbox" class="filter" value="urso"> Ursos</label><br>
+            <label><input type="checkbox" class="filter" value="gato"> Gatos</label><br>
+            <label><input type="checkbox" class="filter" value="cachorro"> Cachorros</label><br>
+
+            <h3>Preço</h3>
+            <label><input type="checkbox" class="filter" value="promoção"> Em promoção</label><br>
+
+            <h3>Busca</h3>
+            <label><input type="button" class="busca" value="Busca"> Busca por categoria</label><br>
+        </aside>
+
+        <!-- Conteúdo central -->
+        <main class="content">
+            <h2>Destaques</h2>
+
+            <div class="products" id="product-list">
+                <!-- Os produtos serão inseridos via JavaScript -->
+            </div>
+        </main>
+
+        <main class="content">
+            <h2>Promoções</h2>
+
+            <div class="products" id="product-list">
+                <!-- Os produtos serão inseridos via JavaScript -->
+            </div>
+        </main>
+
+    </div>
+
+    <script src="../scripts/scriptpelucias.js"></script>
 </body>
 </html>

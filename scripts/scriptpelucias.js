@@ -1,9 +1,9 @@
 // Lista de produtos (exemplo)
 const produtos = [
-    { nome: "Urso Carinhoso", categoria: "urso", preco: 79.90, promoção: true, img: "https://via.placeholder.com/200" },
-    { nome: "Gatinho Fofo", categoria: "gato", preco: 59.90, promoção: false, img: "https://via.placeholder.com/200" },
-    { nome: "Cachorro Peludo", categoria: "cachorro", preco: 89.90, promoção: true, img: "https://via.placeholder.com/200" },
-    { nome: "Ursão Gigante", categoria: "urso", preco: 149.90, promoção: false, img: "https://via.placeholder.com/200" }
+    { nome: "Urso Carinhoso", categoria: "urso", preco: 79.90, promoção: true, img: "../img/Pelucias/ursocarinhoso.jpg" },
+    { nome: "Gatinho Fofo", categoria: "gato", preco: 59.90, promoção: false, img: "../img/Pelucias/gatinhofofo.png" },
+    { nome: "Cachorro Peludo", categoria: "cachorro", preco: 89.90, promoção: true, img: "../img/Pelucias/cachorropeludo.png" },
+    { nome: "Ursão Gigante", categoria: "urso", preco: 149.90, promoção: false, img: "../img/Pelucias/ursogigante.png" }
 ];
 
 const lista = document.getElementById("product-list");

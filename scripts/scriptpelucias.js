@@ -9,6 +9,16 @@ const produtos = [
 const lista = document.getElementById("product-list");
 const filtros = document.querySelectorAll(".filter");
 
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+// Função para adicionar item ao carrinho
+function adicionarAoCarrinho(produto) {
+    carrinho.push(produto);
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    alert(`${produto.nome} foi adicionado ao carrinho!`);
+}
+
+
 // Função para mostrar produtos
 function mostrarProdutos(filtrosAtivos = []) {
     lista.innerHTML = "";
@@ -28,7 +38,14 @@ function mostrarProdutos(filtrosAtivos = []) {
             <img src="${prod.img}">
             <h3>${prod.nome}</h3>
             <p class="price">R$ ${prod.preco.toFixed(2)}</p>
+            <button class="btn-addcarrinho">Adicionar ao carrinho</button>
         `;
+
+        // Evento do botão
+        card.querySelector(".btn-addcarrinho").addEventListener("click", () => {
+            adicionarAoCarrinho(prod);
+        }); 
+        
         lista.appendChild(card);
     });
 }

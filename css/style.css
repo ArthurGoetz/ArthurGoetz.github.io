@@ -149,3 +149,15 @@ footer {
   padding: 20px;
   font-size: 0.9rem;
 }
+
+.item img {
+    width: 250px;   /* diminua aqui */
+    height: 250px;  /* mantém a proporção */
+    border-radius: 8px; /* opcional, deixa mais bonito */
+}
+
+#lista-carrinho {
+    display: flex;
+    flex-wrap: wrap; /* faz quebrar para baixo */
+    gap: 20px;       /* espaço entre produtos (opcional) */
+}

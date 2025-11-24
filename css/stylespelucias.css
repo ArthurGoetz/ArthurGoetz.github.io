@@ -10,8 +10,8 @@ body {
 }
 
 .header {
-    background: yellow;
-    color: black;
+    background: black;
+    color: white;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -21,8 +21,6 @@ body {
 .logo {
     width: 80px;
     height: 80px;
-    background: grey;
-    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,9 +33,11 @@ body {
 
 .sidebar {
     width: 250px;
-    background: yellow;
+    background: black;
     padding: 20px;
     border-right: 2px solid black;
+    color: white;
+    
 }
 
 .content {

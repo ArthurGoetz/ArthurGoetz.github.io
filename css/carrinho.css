@@ -1,0 +1,124 @@
+/* =======================
+   CARRINHO DE COMPRAS
+   ======================= */
+
+/* Título */
+h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-top: 40px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Container geral da lista */
+#lista-carrinho {
+    max-width: 900px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card do item do carrinho */
+.carrinho-item {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+    justify-content: space-between;
+}
+
+/* Imagem */
+.carrinho-item img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Container com nome e preço */
+.carrinho-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.carrinho-info h3 {
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.carrinho-info p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Botão remover */
+.btn-remover {
+    background: #ff4e4e;
+    border: none;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-remover:hover {
+    background: #e13d3d;
+}
+
+/* Total geral */
+.total {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Botão finalizar compra */
+body a[href*="Finalizar"] {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 40px auto;
+    padding: 14px 24px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+body a[href*="Finalizar"]:hover {
+    background: #000;
+    transform: scale(1.03);
+}
+
+/* =======================
+   RESPONSIVIDADE
+   ======================= */
+
+@media (max-width: 600px) {
+    .carrinho-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .carrinho-info {
+        margin-left: 0;
+    }
+
+    .btn-remover {
+        width: 100%;
+    }
+}

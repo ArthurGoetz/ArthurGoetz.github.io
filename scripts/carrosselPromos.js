@@ -2,14 +2,13 @@
 
 const promos = [
     { img: "img/Pelucias/cachorropeludo.png",
-        titulo: "Ursão Gigante",
+        titulo: "Cachorro Peludo",
         desc: "O queridinho da loja — 30% de desconto hoje!" },
     { img: "img/Pelucias/gatinhofofo.png",
         titulo: "Gatinho Fofo",
-        desc: "Um clássico para presentear ❤️"
- },
+        desc: "Um clássico para presentear ❤️" },
     { img: "img/Pelucias/ursocarinhoso.jpg",
-        titulo: "Cachorrinho Fofuxo",
+        titulo: "Urso Carinhoso",
         desc: "Promoção especial até domingo!" }
 ];
 

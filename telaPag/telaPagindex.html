@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tela de Pagamento — Exemplo</title>
+  <title>Tela de Pagamento</title>
   <!-- link para o CSS externo -->
   <link rel="stylesheet" href="../css/telaPagStyle.css"/>
 </head>
@@ -14,8 +14,9 @@
     <!-- Área de resumo (valor / descrição) -->
     <section class="summary" aria-labelledby="summary-title">
       <h2 id="summary-title">Resumo do pedido</h2>
-      <p class="item">Produto: Curso de JavaScript</p>
-      <p class="amount">Total: <strong>R$ 199,90</strong></p>
+      <!-- <p class="item">Produto: Curso de JavaScript</p> -->
+      <div id="produtos"></div>
+      <div id="total"></div>
     </section>
 
     <!-- Formulário de pagamento -->
@@ -37,7 +38,7 @@
           name="cardNumber"
           inputmode="numeric"
           autocomplete="cc-number"
-          maxlength="19" <!-- 16 dígitos + 3 espaços -->
+          maxlength="19"
           placeholder="0000 0000 0000 0000"
           required
         />
@@ -49,7 +50,7 @@
           id="card-name"
           name="cardName"
           autocomplete="cc-name"
-          placeholder="Ex.: MARIA DA SILVA"
+          placeholder="Ex.: Cuca Beludo"
           required
         />
         <div class="error" id="card-name-error" aria-live="polite"></div>
@@ -98,20 +99,11 @@
       </fieldset>
 
       <!-- Botão de pagamento -->
-      <button id="pay-button" type="submit">Pagar R$ 199,90</button>
+      <button id="pay-button" type="submit">Realizar transação</button>
 
       <!-- Mensagem de status (sucesso/erro) -->
       <div id="status-message" role="status" aria-live="polite"></div>
     </form>
-
-    <footer class="note">
-      <!-- nota educativa -->
-      <small>
-        Observação: este exemplo é apenas front-end — em uma aplicação real, os dados de cartão
-        nunca devem ser enviados diretamente ao seu servidor sem usar um provedor de pagamentos
-        (Stripe, PagSeguro, etc.) e sem TLS/HTTPS.
-      </small>
-    </footer>
   </main>
 
   <!-- script externo -->

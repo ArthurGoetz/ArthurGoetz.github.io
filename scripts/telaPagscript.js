@@ -1,13 +1,3 @@
-/* script.js
-   Comentários em português para estudo. Este arquivo controla:
-   - Máscaras (formatação) dos campos
-   - Validações (incluindo Luhn para o número do cartão)
-   - Atualização do preview do cartão
-   - Simulação de "envio" (não envia nada para servidor)
-*/
-
-/* ---------- helpers ---------- */
-
 /**
  * remove todos os caracteres que não forem dígitos
  * @param {string} s
@@ -16,28 +6,17 @@ function apenasDigitos(s) {
   return s.replace(/\D/g, '');
 }
 
-/**
- * Luhn algorithm - valida número de cartão
- * Retorna true se o número (somente dígitos) passar no Luhn check.
- */
-function luhnCheck(number) {
-  // aplica o algoritmo Luhn digit-by-digit
-  let sum = 0;
-  let shouldDouble = false;
-  // processa de trás pra frente
-  for (let i = number.length - 1; i >= 0; i--) {
-    let digit = parseInt(number.charAt(i), 10);
-    if (shouldDouble) {
-      digit *= 2;
-      if (digit > 9) digit -= 9;
-    }
-    sum += digit;
-    shouldDouble = !shouldDouble;
-  }
-  return sum % 10 === 0;
-}
-
 /* ---------- form e elementos ---------- */
+
+function attValorAndNomes() {
+  const rawSoma = JSON.parse(localStorage.getItem("soma"));
+  const soma = Number(rawSoma ?? 0);
+  document.getElementById("total").textContent = "Total: R$ " + soma.toFixed(2);
+  const nomes = JSON.parse(localStorage.getItem("nomes")) || [];
+  document.getElementById("produtos").textContent = "Produto(s): " + (nomes.length ? nomes.join(", ") : "Nenhum");
+}
+attValorAndNomes();
+
 
 const form = document.getElementById('payment-form');
 const cardNumberInput = document.getElementById('card-number');
@@ -90,15 +69,14 @@ cardExpiryInput.addEventListener('input', () => {
   previewExpiry.textContent = v || 'MM/AA';
 });
 
-/* CVV: apenas dígitos, máximo 4 */
+/* CVV: apenas dígitos, máximo 3 */
 cardCvvInput.addEventListener('input', () => {
-  cardCvvInput.value = apenasDigitos(cardCvvInput.value).slice(0,4);
+  cardCvvInput.value = apenasDigitos(cardCvvInput.value).slice(0,3);
 });
 
 /* ---------- validações ---------- */
 
 /**
- * valida o número do cartão:
  * - tem entre 13 e 16 dígitos (varia por bandeira) — aqui limitamos a 13-19 por segurança
  * - passa no Luhn
  */
@@ -106,10 +84,6 @@ function validarCardNumber() {
   const digits = apenasDigitos(cardNumberInput.value);
   if (digits.length < 13 || digits.length > 19) {
     errorCardNumber.textContent = 'Número de cartão inválido (quantidade de dígitos).';
-    return false;
-  }
-  if (!luhnCheck(digits)) {
-    errorCardNumber.textContent = 'Número de cartão inválido (falha na verificação).';
     return false;
   }
   errorCardNumber.textContent = '';
@@ -192,28 +166,31 @@ form.addEventListener('submit', (ev) => {
   if (!ok) {
     statusMessage.textContent = 'Corrija os erros acima e tente novamente.';
     btn.disabled = false;
-    btn.textContent = 'Pagar R$ 199,90';
+    btn.textContent = 'Realizar transação';
     return;
   }
 
-  // Simula uma chamada ao provedor de pagamento (aqui só um timeout)
-  // Em uma integração real, você chamaria a API do provedor (Stripe, etc.) para tokenizar o cartão.
   statusMessage.textContent = 'Processando pagamento...';
   setTimeout(() => {
-    // simula sucesso aleatório (para fins de exemplo)
-    const success = true; // se quiser testar falha, mude para false
+    const success = true;
     if (success) {
-      statusMessage.textContent = 'Pagamento efetuado com sucesso! Comprovante enviado por e-mail.';
+      statusMessage.textContent = 'Pagamento efetuado com sucesso!';
       form.reset();
       // reset preview
       previewNumber.textContent = '#### #### #### ####';
       previewName.textContent = 'NOME DO TITULAR';
       previewExpiry.textContent = 'MM/AA';
-      btn.textContent = 'Pagar R$ 199,90';
+      btn.textContent = 'Realizar transação';
       btn.disabled = false;
+      //reset no carrinho pra esvaziar
+      localStorage.setItem("soma", JSON.stringify(0));
+      localStorage.setItem("nomes", JSON.stringify([]));  
+      let carrinho = [];
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      attValorAndNomes();
     } else {
       statusMessage.textContent = 'Falha ao processar o pagamento. Tente outro cartão.';
-      btn.textContent = 'Pagar R$ 199,90';
+      btn.textContent = 'Realizar transação';
       btn.disabled = false;
     }
   }, 1200); // atraso simulado de 1.2s

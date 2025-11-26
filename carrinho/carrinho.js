@@ -3,14 +3,17 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 const lista = document.getElementById("lista-carrinho");
 const total = document.getElementById("total");
+let soma = 0;
 
 function atualizarCarrinho() {
     lista.innerHTML = "";
+    soma = 0;
 
-    let soma = 0;
+    let nomes = [];
 
     carrinho.forEach((item, index) => {
         soma += item.preco;
+        nomes.push(item.nome);
 
         const div = document.createElement("div");
         div.className = "item";
@@ -26,8 +29,10 @@ function atualizarCarrinho() {
 
         lista.appendChild(div);
     });
-
+    localStorage.setItem("soma", JSON.stringify(soma));
     total.textContent = "Total: R$ " + soma.toFixed(2);
+
+    localStorage.setItem("nomes", JSON.stringify(nomes));
 }
 
 function removerItem(indice) {

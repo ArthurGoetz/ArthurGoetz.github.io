@@ -107,6 +107,12 @@ h1 {
     color: #111;
 }
 
+.error {
+    font-size: 1.25rem;
+    color: red;
+    margin-top: 6px;
+    text-align: center;
+}
 
 a[href*="telaPag"] {
     display: block;

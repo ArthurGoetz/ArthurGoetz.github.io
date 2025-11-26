@@ -3,6 +3,7 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 const lista = document.getElementById("lista-carrinho");
 const total = document.getElementById("total");
+const erroCarrinhoVazio = document.getElementById('CarrinhoVazio');
 let soma = 0;
 
 function atualizarCarrinho() {
@@ -41,4 +42,14 @@ function removerItem(indice) {
     atualizarCarrinho();
 }
 
+function BloqFinCompraCarrinhoVazio() {
+    document.getElementById("FinalizarCompra").addEventListener("click", function (event) {
+        if (soma === 0) {
+            event.preventDefault();
+            erroCarrinhoVazio.textContent = 'O carrinho está vazio!';
+        }
+    })
+}
+
 atualizarCarrinho();
+BloqFinCompraCarrinhoVazio();

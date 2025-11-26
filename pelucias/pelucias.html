@@ -6,55 +6,90 @@
     <title>Loja de Pelúcias</title>
     <link rel="stylesheet" href="../css/stylespelucias.css">
     <link rel="icon" href="../img/logo-removebg-preview.png" type="image/png">
-
 </head>
 <body>
 
-    <!-- Cabeçalho -->
+    <!-- HEADER -->
     <header class="header">        
-        <div class="logo">
-            <img src="../img/logo-removebg-preview.png" alt="Logo LuvBear" width="100px">
+
+        <div class="header-left">
+            <div class="logo">
+                <img src="../img/logo-removebg-preview.png" alt="Logo LuvBear">
+            </div>
+            <h1 class="site-title">Loja de Bichos de Pelúcia</h1>
         </div>
-        <h1>Loja de Bichos de Pelúcia</h1>
-        <nav>
+
+        <nav class="nav-links">
             <a href="../index.html">Home</a>
             <a href="../carrinho/carrinho.html">Carrinho</a>
         </nav>
+
+        <div class="menu-toggle">☰</div>
+
     </header>
+
 
     <div class="container">
 
-        <!-- Menu Lateral -->
+        <!-- SIDEBAR -->
         <aside class="sidebar">
-            <h2>Filtros</h2>
 
-            <h3>Categoria</h3>
-            <label><input type="checkbox" class="filter" value="urso"> Ursos</label><br>
-            <label><input type="checkbox" class="filter" value="gato"> Gatos</label><br>
-            <label><input type="checkbox" class="filter" value="cachorro"> Cachorros</label><br>
+            <h2 class="sidebar-title">Filtros</h2>
 
-            <h3>Preço</h3>
-            <label><input type="checkbox" class="filter" value="promoção"> Em promoção</label><br>
+            <div class="sidebar-section">
+                <h3>Categoria</h3>
 
-            <h3>Busca</h3>
-            <label><input type="button" class="busca" value="Busca"> Busca por categoria</label><br>
+                <label class="check-item">
+                    <input type="checkbox" class="filter" value="urso">
+                    Ursos
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox" class="filter" value="gato">
+                    Gatos
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox" class="filter" value="cachorro">
+                    Cachorros
+                </label>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Preço</h3>
+
+                <label class="check-item">
+                    <input type="checkbox" class="filter" value="promoção">
+                    Em promoção
+                </label>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Busca</h3>
+
+                <button class="sidebar-btn busca">Buscar categoria</button>
+            </div>
+
         </aside>
 
-        <!-- Conteúdo central -->
+
+        <!-- CONTEÚDO -->
         <main class="content">
-            <h2>Destaques</h2>
 
-            <div class="products" id="product-list">
-                <!-- Os produtos serão inseridos via JavaScript -->
-            </div>
-        </main>
+            <section class="section-block">
+                <h2>Destaques</h2>
+                <div class="products" id="product-list">
+                    <!-- Produtos via JS -->
+                </div>
+            </section>
 
-        <main class="content">
-            <h2>Promoções</h2>
+            <section class="section-block">
+                <h2>Promoções</h2>
+                <div class="products" id="promotions-list">
+                    <!-- Produtos via JS -->
+                </div>
+            </section>
 
-            <div class="products" id="product-list">
-                <!-- Os produtos serão inseridos via JavaScript -->
-            </div>
         </main>
 
     </div>

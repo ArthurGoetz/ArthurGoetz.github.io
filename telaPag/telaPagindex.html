@@ -4,111 +4,87 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tela de Pagamento</title>
-  <!-- link para o CSS externo -->
+
   <link rel="stylesheet" href="../css/telaPagStyle.css"/>
   <link rel="icon" href="../img/logo-removebg-preview.png" type="image/png">
 
 </head>
 <body>
   <main class="container">
+
     <h1>Pagamento</h1>
 
-    <!-- Área de resumo (valor / descrição) -->
+    <!-- BOTÕES DE VOLTAR -->
+    <div class="nav-buttons">
+      <a href="../carrinho/carrinhoindex.html" class="btn-voltar">← Voltar ao Carrinho</a>
+      <a href="../index.html" class="btn-voltar">🏠 Home</a>
+    </div>
+
+    <!-- Área de resumo -->
     <section class="summary" aria-labelledby="summary-title">
       <h2 id="summary-title">Resumo do pedido</h2>
-      <!-- <p class="item">Produto: Curso de JavaScript</p> -->
       <div id="produtos"></div>
       <div id="total"></div>
     </section>
 
-    <!-- Formulário de pagamento -->
+    <!-- Formulário -->
     <form id="payment-form" novalidate>
+
       <fieldset>
         <legend>Dados do cartão</legend>
 
-        <!-- Preview do cartão (apenas visual) -->
         <div class="card-preview" aria-hidden="true" id="card-preview">
           <div class="card-number">#### #### #### ####</div>
           <div class="card-name">NOME DO TITULAR</div>
           <div class="card-expiry">MM/AA</div>
         </div>
 
-        <!-- Número do cartão -->
         <label for="card-number">Número do cartão</label>
-        <input
-          id="card-number"
-          name="cardNumber"
-          inputmode="numeric"
-          autocomplete="cc-number"
-          maxlength="19"
-          placeholder="0000 0000 0000 0000"
-          required
-        />
+        <input id="card-number" name="cardNumber" inputmode="numeric" autocomplete="cc-number"
+               maxlength="19" placeholder="0000 0000 0000 0000" required />
         <div class="error" id="card-number-error" aria-live="polite"></div>
 
-        <!-- Nome do titular -->
         <label for="card-name">Nome do titular</label>
-        <input
-          id="card-name"
-          name="cardName"
-          autocomplete="cc-name"
-          placeholder="Ex.: Cuca Beludo"
-          required
-        />
+        <input id="card-name" name="cardName" autocomplete="cc-name"
+               placeholder="Ex.: Cuca Beludo" required />
         <div class="error" id="card-name-error" aria-live="polite"></div>
 
         <div class="row">
-          <!-- Validade -->
           <div class="col">
             <label for="card-expiry">Validade (MM/AA)</label>
-            <input
-              id="card-expiry"
-              name="cardExpiry"
-              inputmode="numeric"
-              maxlength="5"
-              placeholder="MM/AA"
-              autocomplete="cc-exp"
-              required
-            />
+            <input id="card-expiry" name="cardExpiry" inputmode="numeric" maxlength="5"
+                   placeholder="MM/AA" autocomplete="cc-exp" required />
             <div class="error" id="card-expiry-error" aria-live="polite"></div>
           </div>
 
-          <!-- CVV -->
           <div class="col">
             <label for="card-cvv">CVV</label>
-            <input
-              id="card-cvv"
-              name="cardCvv"
-              inputmode="numeric"
-              maxlength="4"
-              placeholder="123"
-              autocomplete="cc-csc"
-              required
-            />
+            <input id="card-cvv" name="cardCvv" inputmode="numeric"
+                   maxlength="4" placeholder="123" autocomplete="cc-csc" required />
             <div class="error" id="card-cvv-error" aria-live="polite"></div>
           </div>
         </div>
       </fieldset>
 
-      <!-- Dados de cobrança simples (opcional) -->
       <fieldset>
         <legend>Endereço de cobrança</legend>
+
         <label for="billing-address">Endereço</label>
-        <input id="billing-address" name="billingAddress" placeholder="Rua, número, complemento" />
+        <input id="billing-address" name="billingAddress"
+               placeholder="Rua, número, complemento" />
 
         <label for="billing-zip">CEP</label>
-        <input id="billing-zip" name="billingZip" inputmode="numeric" maxlength="9" placeholder="00000-000" />
+        <input id="billing-zip" name="billingZip"
+               inputmode="numeric" maxlength="9" placeholder="00000-000" />
       </fieldset>
 
-      <!-- Botão de pagamento -->
       <button id="pay-button" type="submit">Realizar transação</button>
 
-      <!-- Mensagem de status (sucesso/erro) -->
       <div id="status-message" role="status" aria-live="polite"></div>
+
     </form>
   </main>
 
-  <!-- script externo -->
   <script src="../scripts/telaPagscript.js"></script>
 </body>
 </html>

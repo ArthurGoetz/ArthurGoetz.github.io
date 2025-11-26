@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brinquedos Cariocca</title>
-    <link id = "tema" rel="stylesheet" href="css/style.css">
+    <link id="tema" rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/logo-removebg-preview.png" type="image/png">
-
-
 </head>
 
 <body>
@@ -15,21 +13,31 @@
     <div class="logo">
         <img src="img/logo-removebg-preview.png" alt="Logo Brinquedos Cariocca" width="100px">
     </div>
+
     <h1>Brinquedos Cariocca</h1>
+
     <nav>
-            <a href="index.html">Home</a>
-            <a href="pelucias/pelucias.html">Produtos</a>
-            <a href="contato.html">Contato</a>        
-     </nav>
+        <a href="index.html">Home</a>
+        <a href="pelucias/pelucias.html">Produtos</a>
+        <a href="contato.html">Contato</a>
+        <a href="carrinho/carrinho.html" class="cart-btn">Carrinho 🛒</a>
+    </nav>
 </header>
-    <p>
-        Ursos peludos 
-       
-    </p>
-    <div>
-        <button id="light">Modo Claro</button>
-        <button id="dark">Modo Escuro</button>
+
+<div id="carrossel-container">
+    <img id="carrossel-img" src="" alt="Promoção">
+
+    <div id="carrossel-info">
+        <h3 id="carrossel-title"></h3>
+        <p id="carrossel-desc"></p>
     </div>
-    <script src = "scripts/main.js"></script>
+    <div id="carousel-buttons">
+        <button class="carousel-btn" id="prev">Anterior</button>
+        <button class="carousel-btn" id="next">Próximo</button>
+    </div>
+</div>
+
+<script src="scripts/carrosselPromos.js"></script>
+
 </body>
 </html>

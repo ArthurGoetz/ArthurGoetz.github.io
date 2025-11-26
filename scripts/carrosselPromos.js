@@ -1,5 +1,3 @@
-
-
 const promos = [
     { img: "img/Pelucias/cachorropeludo.png",
         titulo: "Cachorro Peludo",

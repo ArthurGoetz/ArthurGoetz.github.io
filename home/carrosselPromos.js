@@ -1,11 +1,11 @@
 const promos = [
-    { img: "img/Pelucias/cachorropeludo.png",
+    { img: "img/produtos/cachorropeludo.png",
         titulo: "Cachorro Peludo",
         desc: "O queridinho da loja — 30% de desconto hoje!" },
-    { img: "img/Pelucias/gatinhofofo.png",
+    { img: "img/produtos/gatinhofofo.png",
         titulo: "Gatinho Fofo",
         desc: "Um clássico para presentear ❤️" },
-    { img: "img/Pelucias/ursocarinhoso.jpg",
+    { img: "img/produtos/ursocarinhoso.jpg",
         titulo: "Urso Carinhoso",
         desc: "Promoção especial até domingo!" }
 ];

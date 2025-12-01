@@ -28,6 +28,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
+  height: 80px;
 }
 
 header .logo img {
@@ -35,19 +36,19 @@ header .logo img {
   height: auto;
   filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.1));
   transition: transform 0.3s ease;
+  margin-top: 60%;
 }
 
 header .logo img:hover {
   transform: scale(1.05);
+  
 }
-
 
 header h1 {
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 1px;
 }
-
 
 nav {
   display: flex;
@@ -83,10 +84,9 @@ nav a:hover::after {
   width: 100%;
 }
 
-
 p {
   max-width: 800px;
-  margin: 80px auto 30px auto;
+  margin: 0;
   font-size: 1rem;
   color: #333;
   text-align: center;
@@ -119,29 +119,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-
-body.dark-mode {
-  background-color: #111;
-  color: #eee;
-}
-
-body.dark-mode header {
-  background: linear-gradient(90deg, #222, #000);
-}
-
-body.dark-mode p {
-  color: #ddd;
-}
-
-body.dark-mode button {
-  background-color: #f3e23b;
-  color: #000;
-}
-
-body.dark-mode button:hover {
-  background-color: #fff;
-}
-
 footer {
   background-color: #000;
   color: #aaa;
@@ -151,15 +128,15 @@ footer {
 }
 
 .item img {
-    width: 250px;   /* diminua aqui */
-    height: 250px;  /* mantém a proporção */
-    border-radius: 8px; /* opcional, deixa mais bonito */
+    width: 250px;
+    height: 250px;
+    border-radius: 8px;
 }
 
 #lista-carrinho {
     display: flex;
-    flex-wrap: wrap; /* faz quebrar para baixo */
-    gap: 20px;       /* espaço entre produtos (opcional) */
+    flex-wrap: wrap;
+    gap: 20px;
 }
 /* Container padrão */
 #carrossel-container {
@@ -169,7 +146,6 @@ footer {
     display: flex;
     flex-direction: column;
 }
-
 
 #carrossel-img {
     width: 100%;
@@ -220,4 +196,175 @@ footer {
 .carousel-btn:hover {
     background: #eaeaea;
     transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+
+  header {
+    padding: 12px 30px;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  p {
+    margin: 50px auto 25px auto;
+    font-size: 0.95rem;
+  }
+
+  .item img {
+    width: 200px;
+    height: 200px;
+  }
+
+  #lista-carrinho {
+    gap: 15px;
+  }
+
+  #carrossel-container {
+    max-width: 320px;
+  }
+
+  #carrossel-title {
+    font-size: 16px;
+  }
+
+  #carrossel-desc {
+    font-size: 13px;
+  }
+
+  #carousel-buttons {
+    flex-direction: row;
+    margin-bottom: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  header .logo img {
+    width: 65px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding: 0 15px;
+  }
+
+  div {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  button {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .item img {
+    width: 160px;
+    height: 160px;
+  }
+
+  #lista-carrinho {
+    justify-content: center;
+  }
+
+  #carrossel-container {
+    max-width: 280px;
+  }
+
+  #carrossel-img {
+    padding: 10px;
+  }
+
+  #carousel-buttons {
+    flex-direction: row;
+    margin-bottom: 2px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  header {
+    padding: 8px 10px;
+  }
+
+  header .logo {
+    margin: 0;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  nav {
+    flex-direction: row;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    padding: 0 10px;
+    margin: 0;
+  }
+
+  button {
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .item img {
+    width: 130px;
+    height: 130px;
+  }
+
+  #lista-carrinho {
+    gap: 10px;
+  }
+
+  #carrossel-container {
+    max-width: 240px;
+  }
+
+  #carrossel-title {
+    font-size: 15px;
+    margin-bottom: 0;    
+  }
+
+  #carousel-buttons {
+    flex-direction: row;
+    margin-bottom: 2px;
+  }
+
+  div {
+    margin-bottom: 0;
+  }
 }
